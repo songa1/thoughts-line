@@ -1,0 +1,47 @@
+.container {
+  border: 1px solid #ccc;
+  width: 45vw;
+}
+
+.post {
+  padding: 10px;
+}
+
+.postMetadata {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+}
+
+.postMetadata div {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto 0 10px;
+}
+
+.postMetadata div h4 {
+  margin: 0;
+}
+
+.postMetadata div p {
+  margin: 0;
+}
+
+.postData {
+  padding: 10px;
+}
+
+.postData img {
+  width: 100%;
+}
+
+.postActions {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  text-align: center;
+  justify-content: center;
+  margin: 0;
+  background-color: var(--main);
+  color: #fff;
+  margin: 0;
+}

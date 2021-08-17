@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&family=PT+Sans&display=swap');
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --main: #590909;
+}
+body {
+  font-family: 'PT Sans', sans-serif;
+  color: #333;
+  width: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  margin: 0;
+}
+
+a { 
+  color: #333; 
+  text-decoration: none;
+}
+
+nav {
+  background-color: var(--main);
+  display: flex;
+  align-items: center;
+  color: #fff;
+  justify-content: center;
+}
+
+.navbar {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar div {
+  display: flex;
+  margin-left: auto;
+  align-items: center;
+}
+
+.navbar input {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.navbar a {
+  color: #fff;
+  margin: 0 20px;
+}
+
+.content {
+  margin: 10px auto;
+  display: flex;
+  justify-content: center;
+
+}
+
+.sidebar {
+  background-color: var(--main);
+  height: 80vh;
+  width: 15vw;
+  color: #fff;
+  padding: 10px;
+  margin-right: 5px;
+  text-align: center;
+}
+
+.sidebar img {
+  width: 200px;
+  margin: 0;
+}
