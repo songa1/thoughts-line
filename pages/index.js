@@ -23,6 +23,7 @@ export default function Home() {
             <p>share</p>
           </div>
       </div>
+      
     </div>
   )
 }
