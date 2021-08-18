@@ -1,6 +1,7 @@
 .container {
   border: 1px solid #ccc;
   width: 45vw;
+  margin-top: 10vh;
 }
 
 .post {

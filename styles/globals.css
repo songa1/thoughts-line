@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito&family=PT+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo&family=Yanone+Kaffeesatz:wght@300&display=swap');
 * {
   box-sizing: border-box;
-  font-family: 'PT Sans', sans-serif;
+  font-family: 'Cairo', sans-serif;
 }
 
 :root {
@@ -35,6 +35,11 @@ nav {
   display: flex;
   align-items: center;
   color: #fff;
+  height: 10vh;
+  width: 100%;
+  top: 0;
+  position: fixed;
+  z-index: 5;
   justify-content: center;
   box-shadow: 0 2.8px 2.2px rgba(27, 27, 27, 0.034), 0 6.7px 5.3px rgba(110, 110, 110, 0.048), 0 12.5px 10px rgba(117, 116, 116, 0.06),
         0 22.3px 17.9px rgba(110, 110, 110, 0.072),
@@ -82,7 +87,11 @@ nav {
   color: #fff;
   padding: 20px;
   margin-right: 5px;
-  position: relative;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-top: 0;
   box-shadow: 0 2.8px 2.2px rgba(27, 27, 27, 0.034), 0 6.7px 5.3px rgba(110, 110, 110, 0.048), 0 12.5px 10px rgba(117, 116, 116, 0.06),
         0 22.3px 17.9px rgba(110, 110, 110, 0.072),
         0 41.8px 33.4px rgba(110, 110, 110, 0.086),
