@@ -69,3 +69,15 @@
 .notFound img {
   width: 50%;
 }
+
+.newPost {
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  color: var(--randomText);
+}
+
+.newPost input {
+  width: 100%;
+  padding: 10px;
+}

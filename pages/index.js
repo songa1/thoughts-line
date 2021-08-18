@@ -1,10 +1,38 @@
 import Head from 'next/head'
+// import {useState} from 'react'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+// import { EditorState, convertToRaw } from 'draft-js';
+// import { Editor } from "react-draft-wysiwyg";
+// import draftToHtml from 'draftjs-to-html';
+// import htmlToDraft from 'html-to-draftjs';
+// import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
 export default function Home() {
+  // const [editorState, setEditorState] = useState('')
+
+  // const onEditorStateChange = (editorState) => {
+  //   setEditorState()
+  // };
   return (
     <div className={styles.container}>
+      <div className={styles.newPost}>
+        {/* <Editor
+          editorState={editorState}
+          toolbarClassName="toolbarClassName"
+          wrapperClassName="wrapperClassName"
+          editorClassName="editorClassName"
+          onEditorStateChange={onEditorStateChange}
+        />; */}
+        <h2>What's on your mind, Achille!</h2>
+        <input type='text' placeholder='Title...'></input>
+        <textarea
+          placeholder="What's on your mind?"
+          rows='10'
+          width="100%"
+        />
+        <button className='btn'>Add a new post</button>
+      </div>
       <div className={styles.post}>
           <div className={styles.postMetadata}>
             <Image src='/AS-PNG.png' width='50' height='60'></Image>

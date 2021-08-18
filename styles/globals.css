@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito&family=PT+Sans&display=swap');
 * {
   box-sizing: border-box;
+  font-family: 'PT Sans', sans-serif;
 }
 
 :root {
@@ -9,10 +10,10 @@
   --missingText: rgb(121, 118, 118);
   --buttonInBlue: #294aaf;
   --white: white;
+  --randomText: #333;
 }
 body {
-  font-family: 'PT Sans', sans-serif;
-  color: #333;
+  color: var(--randomText);
   width: 100%;
   left: 0;
   right: 0;
@@ -23,6 +24,10 @@ body {
 a { 
   color: var(--white); 
   text-decoration: none;
+}
+
+h2 {
+  margin: 10px;
 }
 
 nav {
@@ -37,16 +42,10 @@ nav {
         0 100px 80px rgba(59, 59, 59, 0.12);
 }
 
-nav input {
-  padding: 10px;
-  border-radius: 5px;
-  margin-right: auto;
-}
-
 .navbar {
   width: 60%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center; 
 }
 
@@ -57,8 +56,11 @@ nav input {
 }
 
 .navbar input {
+  padding: 10px;
+  border-radius: 5px;
   margin-left: auto;
-  margin-right: auto;
+  outline: none;
+  border: 1px solid var(--main);
 }
 
 .navbar a {
@@ -143,4 +145,11 @@ nav input {
 
 .side-menu a:hover {
   text-decoration: underline;
+}
+
+textarea {
+  
+  width: 100%;
+  margin: 10px auto;
+  padding: 10px;
 }
