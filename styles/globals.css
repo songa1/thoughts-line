@@ -19,6 +19,7 @@ body {
   right: 0;
   top: 0;
   margin: 0;
+  word-wrap: break-word;
 }
 
 a { 
@@ -40,35 +41,39 @@ nav {
   top: 0;
   position: fixed;
   z-index: 5;
-  justify-content: center;
+  padding: 10px;
+  justify-content: flex-end;
   box-shadow: 0 2.8px 2.2px rgba(27, 27, 27, 0.034), 0 6.7px 5.3px rgba(110, 110, 110, 0.048), 0 12.5px 10px rgba(117, 116, 116, 0.06),
         0 22.3px 17.9px rgba(110, 110, 110, 0.072),
         0 41.8px 33.4px rgba(110, 110, 110, 0.086),
         0 100px 80px rgba(59, 59, 59, 0.12);
 }
 
-.navbar {
-  width: 60%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center; 
-}
-
-.navbar div {
+nav div {
   display: flex;
   margin-left: auto;
   align-items: center;
 }
 
-.navbar input {
+nav input {
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 10px;
   margin-left: auto;
   outline: none;
+  width: 400px;
   border: 1px solid var(--main);
 }
 
-.navbar a {
+nav input:active {
+  padding: 10px;
+  border-radius: 10px;
+  margin-left: auto;
+  outline: none;
+  width: 400px;
+  border: 1px solid var(--white);
+}
+
+nav a {
   color: #fff;
   margin: 0 20px;
 }
@@ -86,7 +91,6 @@ nav {
   width: 15vw;
   color: #fff;
   padding: 20px;
-  margin-right: 5px;
   position: fixed;
   left: 0;
   right: 0;
@@ -146,6 +150,10 @@ nav {
 
 .side-menu {
   list-style: none;
+  height: 200px;
+  overflow: scroll;
+  scroll-behavior: smooth;
+  scrollbar-color: var(--white);
 }
 
 .side-menu li {

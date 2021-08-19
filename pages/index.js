@@ -1,44 +1,63 @@
-import Head from 'next/head'
-// import {useState} from 'react'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
-// import { EditorState, convertToRaw } from 'draft-js';
-// import { Editor } from "react-draft-wysiwyg";
-// import draftToHtml from 'draftjs-to-html';
-// import htmlToDraft from 'html-to-draftjs';
-// import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+import Head from 'next/head';
+import {useState, useEffect} from 'react';
+import Image from 'next/image';
+import styles from '../styles/Home.module.css';
+import { db } from '../utils/firebase';
 
 export default function Home() {
-  // const [editorState, setEditorState] = useState('')
+  const [title, setTitle] = useState('')
+  const [body, setBody] = useState('')
+  const [posts, setPosts] = useState('')
 
-  // const onEditorStateChange = (editorState) => {
-  //   setEditorState()
-  // };
+  useEffect(() => {
+      // const getPosts = async() => {
+      //   const snapshot = await db.collection('posts').get();
+      //   snapshot.docs.forEach(doc=> setPosts(doc))
+      // }
+      // getPosts()
+  }, [])
+
+  console.log(posts)
+
+  const clearFields = () => {
+    setTitle('')
+    setBody('')
+  }
+
+  const onAddNew = () => {
+    const post = {
+      title,
+      body,
+      date: Date.now(),
+      author: "Achille Songa",
+    }
+    console.log(post)
+    clearFields()
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.newPost}>
-        {/* <Editor
-          editorState={editorState}
-          toolbarClassName="toolbarClassName"
-          wrapperClassName="wrapperClassName"
-          editorClassName="editorClassName"
-          onEditorStateChange={onEditorStateChange}
-        />; */}
         <h2>What's on your mind, Achille!</h2>
-        <input type='text' placeholder='Title...'></input>
+        <input type='text' placeholder='Title...' value={title} onChange={(e)=>setTitle(e.target.value)}></input>
         <textarea
           placeholder="What's on your mind?"
           rows='10'
           width="100%"
+          value={body}
+          onChange={(e)=>setBody(e.target.value)}
         />
-        <button className='btn'>Add a new post</button>
+        <button className='btn' onClick={onAddNew}>Add a new post</button>
       </div>
       <div className={styles.post}>
           <div className={styles.postMetadata}>
             <Image src='/AS-PNG.png' width='50' height='60'></Image>
-            <div>
-              <h4><strong>Achille Songa</strong> added <b>Who am I?</b></h4>
+            <div className={styles.meta}>
+              <h4><strong>Achille Songa</strong> added <b>{title ? title : "Post title"}</b></h4>
               <p>2 hours ago</p>
+            </div>
+            <div className={styles.postEdit}>
+              <p>Menu</p>
             </div>
           </div>
           <div className={styles.postData}>

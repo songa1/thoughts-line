@@ -1,0 +1,13 @@
+.form {
+    padding: 10px;
+}
+
+.form h2 {
+    text-align: center;
+}
+
+.form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+}
