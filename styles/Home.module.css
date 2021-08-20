@@ -23,12 +23,16 @@
 
 .postEdit {
   margin-left: auto;
+  text-decoration: underline;
+  position: relative;
+  display: flex;
 }
 
-.postEdit {
-  margin-left: auto;
-  text-decoration: underline;
+.postEdit p {
+  cursor: pointer;
+  padding: 0 10px;
 }
+
 
 .meta {
   display: flex;
@@ -58,9 +62,9 @@
   text-align: center;
   justify-content: center;
   margin: 0;
-  background-color: var(--main);
+  background-color: var(--secondaryTwo);
   color: #fff;
-  margin: 0;
+  padding: 0;
 }
 
 .notFound {

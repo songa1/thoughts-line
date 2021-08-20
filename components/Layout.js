@@ -1,9 +1,10 @@
 import Navbar from './Navbar'
 import StickySidebar from './StickySidebar'
+import {AuthProvider} from '../utils/auth/firebaseAuth';
 
 const Layout = ({children}) => {
     return (
-        <div>
+        <AuthProvider>
             <Navbar/>
             <div className='content'>
                 <StickySidebar/>
@@ -11,7 +12,7 @@ const Layout = ({children}) => {
                     {children}
                 </div>
             </div>
-        </div>
+        </AuthProvider>
     )
 }
 
