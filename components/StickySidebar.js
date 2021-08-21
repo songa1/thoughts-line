@@ -8,7 +8,7 @@ const StickySidebar = () => {
             <p>I am a full-stack web developer who lover writting and coding for the world. I put my attentio to everything that might change the world.</p>
             <ul className='side-menu'>
                 <li><Link href='/projects' ><a>Projects</a></Link></li>
-                <li><Link href='/contact'><a>Skills</a></Link></li>
+                <li><Link href='/skills'><a>Skills</a></Link></li>
                 <li><Link href='/contact'><a>Experience</a></Link></li>
                 <li><Link href='/about'><a>About me</a></Link></li>
                 <li><Link href='/contact'><a>Contact me</a></Link></li>

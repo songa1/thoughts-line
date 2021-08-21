@@ -18,8 +18,8 @@ const Navbar = () => {
                 <div>
                     <Link href='/'><a>Feeds</a></Link>
                     {!user?<Link href='/login'><a>Login</a></Link>:
-                    <button onClick={logout}>Logout</button>}
-                    <Image src='/AS-PNG.png' width={50} height={50}></Image>
+                    <button onClick={logout} className='btn'>Logout</button>}
+                    {/* <Image src='/AS-PNG.png' width={50} height={50}></Image> */}
                 </div>
             {/* </div> */}
         </nav>

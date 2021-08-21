@@ -45,8 +45,8 @@ const ReadPosts = () => {
 
     return (
         <>
-            {posts.length === 0 && <p className="empty-message">No posts to display!</p>}
             {loading && <div className="loader"><div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>}
+            {posts.length === 0 && <p className="empty-message">{loading ? "Getting posts...":"No posts to display!"}</p>}
             {posts && !loading && 
             posts.map(post => (
                 <div key={post.id} className={styles.post}>
@@ -68,7 +68,7 @@ const ReadPosts = () => {
                     <div className={styles.postActions}>
                         <p>{`${post.data().likes} Like`}</p>
                         <p>{`${post.data().comments.length} Comments`}</p>
-                        <p>Share</p>
+                        <p>Read more</p>
                     </div>
                 </div> 
             )) 
