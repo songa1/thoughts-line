@@ -50,11 +50,11 @@ const Contact = () => {
             <div>
                 <p className="text-center">Ping me on my Social Accounts;</p>
                 <div className='socials'>
-                    <a target='_blank' href='https://fb.me/songa.achille.9'><img src='/facebookx.png'></img></a>
+                    <a target='_blank' rel="noreferrer" href='https://fb.me/songa.achille.9'><img src='/facebookx.png'></img></a>
                     &nbsp;&nbsp;&nbsp;
-                    <a target='_blank' href='https://instagram.com/achille_songa'><img src='/instagramx.png'></img></a>
+                    <a target='_blank' rel="noreferrer" href='https://instagram.com/achille_songa'><img src='/instagramx.png'></img></a>
                     &nbsp;&nbsp;&nbsp;
-                    <a target='_blank' href='https://twitter.com/achille_songa'><img src='/twitterx.png'></img></a>
+                    <a target='_blank' rel="noreferrer" href='https://twitter.com/achille_songa'><img src='/twitterx.png'></img></a>
                 </div>
                 <p className='text-center'>Or use the form below:</p>
             </div>
