@@ -2,6 +2,7 @@ import styles from '../styles/Home.module.css';
 import { useState } from 'react';
 import firebase from 'firebase/app'
 import 'firebase/firestore'
+import Link from 'next/link';
 
 const Contact = () => {
     const [name, setName] = useState('')
@@ -50,11 +51,11 @@ const Contact = () => {
             <div>
                 <p className="text-center">Ping me on my Social Accounts;</p>
                 <div className='socials'>
-                    <a target='_blank' rel="noreferrer" href='https://fb.me/songa.achille.9'><img src='/facebookx.png'></img></a>
+                    <Link href='https://fb.me/songa.achille.9'><a><img src='/facebookx.png'></img></a></Link>
                     &nbsp;&nbsp;&nbsp;
-                    <a target='_blank' rel="noreferrer" href='https://instagram.com/achille_songa'><img src='/instagramx.png'></img></a>
+                    <Link href='https://instagram.com/achille_songa'><a><img src='/instagramx.png'></img></a></Link>
                     &nbsp;&nbsp;&nbsp;
-                    <a target='_blank' rel="noreferrer" href='https://twitter.com/achille_songa'><img src='/twitterx.png'></img></a>
+                    <Link href='https://twitter.com/achille_songa'><a><img src='/twitterx.png'></img></a></Link>
                 </div>
                 <p className='text-center'>Or use the form below:</p>
             </div>
