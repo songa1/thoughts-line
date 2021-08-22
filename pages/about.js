@@ -12,7 +12,7 @@ const About = () => {
             <div className='about'>
                 <div className='background'>
                     <img src='/songa.png' className='image'></img>
-                    <p className='empty-message'><quote>I was born in 2002&apos; and I started a school in 2007. Since then my life became learning. Since then, I spend many years in a class and sometimes I didn't give myself time to rest. But now I understand that as we work, we also need to have time to relax.</quote></p>
+                    <p className='empty-message'><quote>I was born in 2002&apos; and I started a school in 2007. Since then my life became learning. Since then&apos; I spend many years in a class and sometimes I didn&lsquo;t give myself time to rest. But now I understand that as we work, we also need to have time to relax.</quote></p>
                 </div>
                 <p>When I was a student in ordinary level&apos; I used to write stories&apos; poems and songs. But I didn&lsquo;t give much value to that. I thought it was something useless. Everything changed when I went in Advanced Level. That&lsquo;s when I started learning something new in my life.</p>
                 <p>That&lsquo;s where I started learning about computers. That was in 2017. I was a student at <a href='https://iprckigali.rp.ac.rw'>Integrated Polytechnic Regional College of Kigali (IPRC Kigali)</a> and my whole life changed that time.</p>
