@@ -1,10 +1,15 @@
-import styles from '../../styles/Home.module.css';
+import Head from 'next/head';
 
 const Single =()=>{
     return (
-        <div className={styles.container}>
-
+        <>
+        <Head>
+            <title>Post title</title>
+        </Head>
+        <div className='container'>
+            
         </div>
+        </>
     )
 }
 

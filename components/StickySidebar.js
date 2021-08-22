@@ -1,18 +1,17 @@
-import Image from "next/image"
 import Link from "next/link"
 
 const StickySidebar = () => {
     return (
         <div className='sidebar'>
             <img src='/AS-PNG.png' className='logo'></img>
-            <p>I am a full-stack web developer who lover writting and coding for the world. I put my attentio to everything that might change the world.</p>
-            <ul className='side-menu'>
-                <li><Link href='/projects' ><a>Projects</a></Link></li>
-                <li><Link href='/skills'><a>Skills</a></Link></li>
-                <li><Link href='/contact'><a>Experience</a></Link></li>
-                <li><Link href='/about'><a>About me</a></Link></li>
-                <li><Link href='/contact'><a>Contact me</a></Link></li>
-            </ul>
+            <p className='headline'>Software Engineer | Music Lover</p>
+            <div className='side-menu'>
+                <Link href='/projects' ><a>Projects</a></Link>
+                <Link href='/skills'><a>Skills</a></Link>
+                <Link href='/experience'><a>Experience</a></Link>
+                <Link href='/about'><a>About me</a></Link>
+                <Link href='/contact'><a>Contact me</a></Link>
+            </div>
             <button className='btn'>Become a fan</button>
             <div className='footer'>
                 <div className='socials'>
@@ -20,7 +19,7 @@ const StickySidebar = () => {
                     <img src='/instagram.png' ></img>
                     <img src='/twitter.png' ></img>
                 </div>
-                <p>&copy; Copyright 2021</p>
+                <p>&copy; Copyright Achille Songa 2021</p>
             </div>
         </div>
     )

@@ -1,8 +1,9 @@
-import styles from '../styles/Home.module.css';
+import Head from 'next/head';
 import { useState } from 'react';
 import firebase from 'firebase/app'
 import 'firebase/firestore'
 import Link from 'next/link';
+import Loader from '../components/Loader';
 
 const Contact = () => {
     const [name, setName] = useState('')
@@ -46,7 +47,11 @@ const Contact = () => {
     }
 
     return (
-        <div className={styles.container}>
+        <>
+        <Head>
+            <title>Contact Achille Songa</title>
+        </Head>
+        <div className='container'>
             <h2 className='empty-message'>Would you like to hire me to do work for you? Or have you got anything to discuss about? Maybe not that, just say Hello!</h2>
             <div>
                 <p className="text-center">Ping me on my Social Accounts;</p>
@@ -59,7 +64,7 @@ const Contact = () => {
                 </div>
                 <p className='text-center'>Or use the form below:</p>
             </div>
-            {loading && <div className="loader"><div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>}
+            {loading && <Loader/>}
             {error && !success && <div className='low'><p className='feedback-message'>{error ? error : ''}</p></div>}
             {!success && !loading ? <form className='contact'>
                 <label>Name</label>
@@ -71,6 +76,7 @@ const Contact = () => {
                 <button className='btn' onClick={sendMessage}>Send Message</button>
             </form>: <div className='enough'><p className='feedback-message'>{success ? success : ''}</p></div>}
         </div>
+        </>
     )
 }
 

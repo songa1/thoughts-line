@@ -1,10 +1,11 @@
+import Head from 'next/head';
 import { useState } from 'react';
 import Link from 'next/link'
-import styles from '../styles/Home.module.css';
 import loginStyles from '../styles/Login.module.css';
 import { useAuth } from '../utils/auth/firebaseAuth';
 import firebase from 'firebase/app'
 import 'firebase/auth'
+import Loader from '../components/Loader';
 
 
 const Login = () => {
@@ -16,15 +17,21 @@ const Login = () => {
     const loginHandler = async(e) => {
         e.preventDefault();
         setLoading(true)
-        await firebase.auth().signInWithEmailAndPassword(email, password).then(()=>{
+        await firebase
+        .auth()
+        .signInWithEmailAndPassword(email, password).then(()=>{
             setLoading(fale)
         })
         .catch(err => setLoading(false))
     }
 
     return (
-        <div className={styles.container}>
-            {loading && <div className="loader"><div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>}
+        <>
+        <Head>
+            <title>Login to Achille Songa Blog</title>
+        </Head>
+        <div className='container'>
+            {loading && <Loader/>}
             {!user && !loading ?<form className={loginStyles.form}>
                 <h2>Welcome Achille, login!</h2>
                 <div>
@@ -38,6 +45,7 @@ const Login = () => {
                 <button className="btn" onClick={loginHandler}>Login</button>
             </form>:loading? <p className="empty-message">Logging in...</p>:<p className="empty-message">You are logged in<br></br><Link href='/'><a style={{color: '#333', textDecoration: 'underline'}}>Continue</a></Link></p>}
         </div>
+        </>
     )
 }
 

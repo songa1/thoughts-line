@@ -2,6 +2,7 @@ import styles from '../../styles/Home.module.css';
 import firebase from 'firebase/app'
 import 'firebase/firestore'
 import {useState} from 'react';
+import Loader from '../../components/Loader';
 
 const AddNewPost = () => {
 
@@ -53,7 +54,7 @@ const AddNewPost = () => {
 
     return (
         <>
-            {loading && <div className="loader"><div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>}
+            {loading && <Loader/>}
             {!loading && <div className={styles.newPost}>
                 <h2>What's on your mind, Achille!</h2>
                 <input type='text' placeholder='Title...' value={title} onChange={(e)=>setTitle(e.target.value)}></input>

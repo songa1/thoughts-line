@@ -1,11 +1,16 @@
+import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import Link from 'next/link'
 
 const Skills = () => {
     return (
-        <div className={styles.container}>
+        <>
+        <Head>
+            <title>Skills of Achille Songa</title>
+        </Head>
+        <div className='container'>
             <h2 className='empty-message'>I am Achille Songa, I am a Software Engineer, packed with different skills. Check out some of my skills. And you can make some of them work for you by Hiring me.</h2>
-            <div style={{display: 'flex', justifyContent: 'center'}}><Link href='/contact'><a style={{marginTop: '20px', padding: '10px', backgroundColor: '#333', width: '100%', textAlign: 'center'}}>Hire me!</a></Link></div>
+            <div style={{display: 'flex', justifyContent: 'center', padding: '10px'}}><Link href='/contact'><a className='btn'>Hire me!</a></Link></div>
             <div className='category'>
                 <h2 className='catTitle'>1. Front-End Skills</h2>
                 <div className='skillSet'>
@@ -190,6 +195,7 @@ const Skills = () => {
                 </div>
             </div>
         </div>
+        </>
     )
 }
 

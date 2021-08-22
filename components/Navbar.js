@@ -12,16 +12,16 @@ const Navbar = () => {
     }
     return (
         <nav>
-            {/* <div className="navbar"> */}
-                <h1>Achille Songa Blog</h1>
-                <input type="text" placeholder="Search..."/>
-                <div>
-                    <Link href='/'><a>Feeds</a></Link>
-                    {!user?<Link href='/login'><a>Login</a></Link>:
-                    <button onClick={logout} className='btn'>Logout</button>}
-                    {/* <Image src='/AS-PNG.png' width={50} height={50}></Image> */}
-                </div>
-            {/* </div> */}
+            <h1>Achille Songa Blog</h1>
+            <input type="text" placeholder="Search..."/>
+            <div><button className='menu-sm btn'>Menu</button></div>
+            <div className='menu'>
+                <Link href='/'><a>Feeds</a></Link>
+                <Link href='/'><a>Coding</a></Link>
+                {!user?<Link href='/login'><a className='btn'>Login</a></Link>:
+                <button onClick={logout} className='btn'>Logout</button>}
+                {/* <Image src='/AS-PNG.png' width={50} height={50}></Image> */}
+            </div>
         </nav>
     )
 }
