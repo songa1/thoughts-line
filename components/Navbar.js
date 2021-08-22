@@ -13,7 +13,7 @@ const Navbar = () => {
     return (
         <nav>
             <h1>Achille Songa Blog</h1>
-            <input type="text" placeholder="Search..."/>
+            {/* <input type="text" placeholder="Search..."/> */}
             <div><button className='menu-sm btn'>Menu</button></div>
             <div className='menu'>
                 <Link href='/'><a>Feeds</a></Link>
