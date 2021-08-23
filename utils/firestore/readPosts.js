@@ -6,6 +6,7 @@ import {useState, useEffect} from 'react';
 import moment from 'moment';
 import { useAuth } from '../auth/firebaseAuth';
 import Loader from '../../components/Loader';
+import {Link, RichText, Date} from 'prismic-reactjs';
 
 const ReadPosts = () => {
 
@@ -17,19 +18,20 @@ const ReadPosts = () => {
     useEffect(() => {
         try {
             setLoading(true)
-            firebase.firestore()
+            firebase
+            .firestore()
             .collection('posts')
             .orderBy('date', 'desc')
             .onSnapshot((doc) => {
-                console.log(doc.docs)
                 setPosts(doc.docs)
                 setLoading(false)
             })
         } catch (error) {
-            console.log(error)
             setLoading(false)
         }
     }, [])
+
+    console.log(posts)
 
     const deletePost = (id) => {
         console.log(id)
@@ -53,7 +55,7 @@ const ReadPosts = () => {
     return (
         <>
             {loading && <Loader/>}
-            {posts.length === 0 && <p className="empty-message">{loading ? "Getting posts...":"No posts to display!"}</p>}
+            {posts.length === 0 || !posts && <p className="empty-message">{loading ? "Getting posts...":"No posts to display!"}</p>}
             {posts && !loading && 
             posts.map(post => (
                 <div key={post.id} className={styles.post}>
@@ -70,6 +72,7 @@ const ReadPosts = () => {
                     </div>
                     <article className={styles.postData}>
                         <p>{post.data().body}</p>
+                        {/* {post.data().body&&<RichText render={post.data().body} linkResolver={Link} />} */}
                         {post.data().image && <img src={post.data().image ? post.data().image : ''}/>}
                     </article>
                     <div className={styles.postActions}>

@@ -3,6 +3,16 @@ import firebase from 'firebase/app'
 import 'firebase/firestore'
 import {useState} from 'react';
 import Loader from '../../components/Loader';
+import 'react-quill/dist/quill.snow.css';
+import Head from 'next/head';
+import dynamic from 'next/dynamic';
+
+const ReactQuill = dynamic(
+	() => {
+		return import('react-quill');
+	},
+	{ ssr: false }
+);
 
 const AddNewPost = () => {
 
@@ -16,6 +26,25 @@ const AddNewPost = () => {
         setTitle('')
         setBody('')
     }
+
+    console.log(body)
+
+    const modules = {
+        toolbar: [
+          [{ 'header': [1, 2, false] }],
+          ['bold', 'italic', 'underline','strike', 'blockquote'],
+          [{'list': 'ordered'}, {'list': 'bullet'}, {'indent': '-1'}, {'indent': '+1'}],
+          ['link', 'image'],
+          ['clean']
+        ],
+      };
+      const formats = [
+        'header',
+        'bold', 'italic', 'underline', 'strike', 'blockquote',
+        'list', 'bullet', 'indent',
+        'link', 'image'
+      ];
+
 
     const onAddNew = async() => {
         try {
@@ -52,19 +81,25 @@ const AddNewPost = () => {
         }
     }
 
+    // const ReactQuill = typeof window === 'object' ? require('react-quill') : () => false
+
     return (
         <>
+        <Head>
+            <link rel="stylesheet" href="//cdn.quilljs.com/1.2.6/quill.snow.css"></link>
+        </Head>
             {loading && <Loader/>}
             {!loading && <div className={styles.newPost}>
                 <h2>What's on your mind, Achille!</h2>
                 <input type='text' placeholder='Title...' value={title} onChange={(e)=>setTitle(e.target.value)}></input>
-                <textarea
+                {/* <textarea
                     placeholder="What's on your mind?"
                     rows='10'
                     width="100%"
                     value={body}
                     onChange={(e)=>setBody(e.target.value)}
-                />
+                /> */}
+                <ReactQuill modules={modules} formats={formats} theme="snow" value={body} onChange={(e)=>setBody(e)}/>
                 <button className='btn' onClick={onAddNew} disabled={disabled}>{"Add a new post"}</button>
             </div>}
         </>
