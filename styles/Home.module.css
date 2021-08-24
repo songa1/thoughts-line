@@ -51,16 +51,7 @@
   width: 100%;
 }
 
-.postActions {
-  display: grid;
-  grid-template-columns: 33% 33% 33%;
-  text-align: center;
-  justify-content: center;
-  margin: 0;
-  background-color: var(--secondaryTwo);
-  color: #fff;
-  padding: 0;
-}
+
 
 .notFound {
   text-align: center;

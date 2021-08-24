@@ -27,8 +27,6 @@ const AddNewPost = () => {
         setBody('')
     }
 
-    console.log(body)
-
     const modules = {
         toolbar: [
           [{ 'header': [1, 2, false] }],
@@ -80,8 +78,6 @@ const AddNewPost = () => {
             console.log(error)
         }
     }
-
-    // const ReactQuill = typeof window === 'object' ? require('react-quill') : () => false
 
     return (
         <>

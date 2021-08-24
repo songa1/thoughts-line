@@ -7,6 +7,8 @@ import moment from 'moment';
 import { useAuth } from '../auth/firebaseAuth';
 import Loader from '../../components/Loader';
 import {Link, RichText, Date} from 'prismic-reactjs';
+import { faHeart, faComments, faShare } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ReadPosts = () => {
 
@@ -14,6 +16,7 @@ const ReadPosts = () => {
 
     const [posts, setPosts] = useState('')
     const [loading, setLoading] = useState(false)
+    const [liked, setLiked] = useState(false)
 
     useEffect(() => {
         try {
@@ -31,7 +34,6 @@ const ReadPosts = () => {
         }
     }, [])
 
-    console.log(posts)
 
     const deletePost = (id) => {
         console.log(id)
@@ -51,6 +53,12 @@ const ReadPosts = () => {
             alert('Post not deleted!')
         }
     }
+
+    // Liking functionality
+    const toggle = (id) => {
+        let localLiked = liked;
+        setLiked(true);
+    };
 
     return (
         <>
@@ -75,10 +83,14 @@ const ReadPosts = () => {
                         {/* {post.data().body&&<RichText render={post.data().body} linkResolver={Link} />} */}
                         {post.data().image && <img src={post.data().image ? post.data().image : ''}/>}
                     </article>
-                    <div className={styles.postActions}>
-                        <p>{`${post.data().likes} Like`}</p>
-                        <p>{`${post.data().comments.length} Comments`}</p>
-                        <p>Read more</p>
+                    <div className='postActions'>
+                        <p className='btn' onClick={()=> toggle(post.data().id)}>{`${post.data().likes}`}  <FontAwesomeIcon style={{color: liked ?'red': 'white'}} icon={faHeart} /></p>
+                        <p className='btn-secondary'>{`${post.data().comments.length}`} <FontAwesomeIcon style={{color: 'white'}} icon={faComments} /></p>
+                        <p className='btn-end' onClick={(e)=>{
+                            e.preventDefault();
+                            let url = window.location.href
+                            console.log(url)
+                        }}><FontAwesomeIcon style={{color: 'white'}} icon={faShare} /></p>
                     </div>
                 </div> 
             )) 

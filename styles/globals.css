@@ -148,7 +148,7 @@ nav a {
 }
 
 .btn {
-  padding: 10px;
+  padding: 5px;
   background-color: var(--main);
   box-shadow: #333;
   border-radius: 3px;
@@ -160,7 +160,7 @@ nav a {
 }
 
 .btn-secondary {
-  padding: 10px;
+  padding: 5px;
   background-color: var(--secondary);
   box-shadow: #333;
   border-radius: 3px;
@@ -172,7 +172,7 @@ nav a {
 }
 
 .btn-end {
-  padding: 10px;
+  padding: 5px;
   background-color: var(--randomText);
   box-shadow: #333;
   border-radius: 3px;
@@ -585,4 +585,15 @@ textarea {
   }
 }
 
+.postActions {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
 
+.postActions p{
+  margin: auto 10px;
+}

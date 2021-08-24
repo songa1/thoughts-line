@@ -10,6 +10,9 @@
   },
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^29.1.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/react-fontawesome": "^0.1.15",
     "draft-js": "^0.11.7",
     "draftjs-to-html": "^0.9.1",
     "firebase": "^8.10.0",

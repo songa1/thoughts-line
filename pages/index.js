@@ -10,11 +10,14 @@ export default function Home() {
     <Head>
       <meta name="viewport" content="width=device-width,initial-scale=1.0"></meta>
       <meta name="robots" content="index, follow"></meta>
-      <title>Welcome to Achille Sonag Blog</title>
+      <title>Welcome to Achille Songa Blog</title>
     </Head>
     <div className='container'>
       {user && <AddNewPost />}
       <ReadPosts/>
+      <div>
+        
+      </div>
     </div>
     </>
   )
