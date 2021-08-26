@@ -37,11 +37,11 @@ const Login = () => {
             {!user && !loading ?<form className={loginStyles.form}>
                 <h2>Welcome Achille, login!</h2>
                 <div>
-                    <label forHtml='email'>Email</label>
+                    <label>Email</label>
                     <input type="email" name="email" value={email} onChange={(e)=>setEmail(e.target.value)}></input>
                 </div>
                 <div>
-                    <label forHtml='password'>Password</label>
+                    <label>Password</label>
                     <input type="password" name="password" value={password} onChange={(e)=>setPassword(e.target.value)}></input>
                 </div>
                 <button className="btn" onClick={loginHandler}>Login</button>

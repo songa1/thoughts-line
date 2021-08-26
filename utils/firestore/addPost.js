@@ -66,8 +66,8 @@ const AddNewPost = () => {
                 .doc(title)
                 .set(post)
                 .then(()=> {
+                    clearFields();
                     setLoading(false)
-                    clearFields()
                 })
                 .catch(err => {
                     console.log(err.message)

@@ -6,7 +6,6 @@ import {useState, useEffect} from 'react';
 import moment from 'moment';
 import { useAuth } from '../auth/firebaseAuth';
 import Loader from '../../components/Loader';
-import {Link, RichText, Date} from 'prismic-reactjs';
 import { faHeart, faComments, faShare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -20,34 +19,40 @@ const ReadPosts = () => {
 
     useEffect(() => {
         try {
-            setLoading(true)
-            firebase
-            .firestore()
-            .collection('posts')
-            .orderBy('date', 'desc')
-            .onSnapshot((doc) => {
-                setPosts(doc.docs)
-                setLoading(false)
-            })
+            const getPosts = async() =>{
+                setLoading(true)
+                await firebase
+                .firestore()
+                .collection('posts')
+                .orderBy('date', 'desc')
+                .onSnapshot((doc) => {
+                    setPosts(doc.docs)
+                    setLoading(false)
+                })
+                getPosts()
+            }
         } catch (error) {
             setLoading(false)
         }
     }, [])
 
 
-    const deletePost = (id) => {
+    const deletePost = async(id) => {
         console.log(id)
         if (confirm("Do you want to delete this post?") == true) {
-            firebase
+            setLoading(true)
+            await firebase
             .firestore()
             .collection("posts")
             .doc(id)
             .delete()
             .then(function() {
                 alert('Post deleted successfuly!');
+                setLoading(false)
             })
             .catch(function(error) {
                 console.error("Error removing document: ", error);
+                setLoading(false)
             });
         } else {
             alert('Post not deleted!')
@@ -55,7 +60,7 @@ const ReadPosts = () => {
     }
 
     // Liking functionality
-    const toggle = (id) => {
+    const toggle = () => {
         let localLiked = liked;
         setLiked(true);
     };
@@ -79,17 +84,16 @@ const ReadPosts = () => {
                         </div>}
                     </div>
                     <article className={styles.postData}>
-                        <p>{post.data().body}</p>
-                        {/* {post.data().body&&<RichText render={post.data().body} linkResolver={Link} />} */}
-                        {post.data().image && <img src={post.data().image ? post.data().image : ''}/>}
+                        <p dangerouslySetInnerHTML={{__html: post.data().body}} className='postBody'/>
                     </article>
                     <div className='postActions'>
                         <p className='btn' onClick={()=> toggle(post.data().id)}>{`${post.data().likes}`}  <FontAwesomeIcon style={{color: liked ?'red': 'white'}} icon={faHeart} /></p>
-                        <p className='btn-secondary'>{`${post.data().comments.length}`} <FontAwesomeIcon style={{color: 'white'}} icon={faComments} /></p>
+                        <a className='btn-secondary' onClick={(e)=>{
+                            window.location.href = `/view/${post.id}`
+                        }}>{`${post.data().comments.length}`} <FontAwesomeIcon style={{color: 'white'}} icon={faComments} /></a>
                         <p className='btn-end' onClick={(e)=>{
                             e.preventDefault();
-                            let url = window.location.href
-                            console.log(url)
+                            
                         }}><FontAwesomeIcon style={{color: 'white'}} icon={faShare} /></p>
                     </div>
                 </div> 
