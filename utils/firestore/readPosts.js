@@ -79,9 +79,7 @@ const ReadPosts = () => {
                         </div>}
                     </div>
                     <article className={styles.postData}>
-                        <p>{post.data().body}</p>
-                        {/* {post.data().body&&<RichText render={post.data().body} linkResolver={Link} />} */}
-                        {post.data().image && <img src={post.data().image ? post.data().image : ''}/>}
+                        <p dangerouslySetInnerHTML={{__html: post.data().body}} className='postBody'/>
                     </article>
                     <div className='postActions'>
                         <p className='btn' onClick={()=> toggle(post.data().id)}>{`${post.data().likes}`}  <FontAwesomeIcon style={{color: liked ?'red': 'white'}} icon={faHeart} /></p>
