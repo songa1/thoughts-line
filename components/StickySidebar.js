@@ -1,12 +1,7 @@
 import Link from "next/link"
-import Modal from "./Modal";
 import { useEffect, useState } from "react";
 
 const StickySidebar = () => {
-    const [isShown, setIsShown] = useState(false);
-    const showModal = () => {
-        setIsShown(true);
-    };
     return (
         <>
         <div className='sidebar'>
@@ -19,7 +14,7 @@ const StickySidebar = () => {
                 <Link href='/about'><a>About me</a></Link>
                 <Link href='/contact'><a>Contact me</a></Link>
             </div>
-            <button className='btn' onClick={showModal}>Become a fan</button>
+            <button className='btn'>Become a fan</button>
             <div className='footer'>
                 <div className='socials'>
                     <img src='/facebook.png' ></img>
@@ -29,7 +24,6 @@ const StickySidebar = () => {
                 <p>&copy; Copyright Achille Songa 2021</p>
             </div>
         </div>
-        <Modal isShown={isShown} setIsShown={setIsShown}/>
         </>
     )
 }

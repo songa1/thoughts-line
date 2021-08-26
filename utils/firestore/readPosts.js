@@ -88,9 +88,9 @@ const ReadPosts = () => {
                     </article>
                     <div className='postActions'>
                         <p className='btn' onClick={()=> toggle(post.data().id)}>{`${post.data().likes}`}  <FontAwesomeIcon style={{color: liked ?'red': 'white'}} icon={faHeart} /></p>
-                        <a className='btn-secondary' onClick={(e)=>{
+                        <p className='btn-secondary' onClick={(e)=>{
                             window.location.href = `/view/${post.id}`
-                        }}>{`${post.data().comments.length}`} <FontAwesomeIcon style={{color: 'white'}} icon={faComments} /></a>
+                        }}>{`${post.data().comments.length}`} <FontAwesomeIcon style={{color: 'white'}} icon={faComments} /></p>
                         <p className='btn-end' onClick={(e)=>{
                             e.preventDefault();
                             
