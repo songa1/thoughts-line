@@ -6,25 +6,30 @@ import firebase from 'firebase/app';
 import 'firebase/firestore'
 import styles from '../../styles/Home.module.css';
 import moment from 'moment';
-import useAuth from '../../utils/auth/firebaseAuth'
+import { useAuth } from '../../utils/auth/firebaseAuth'
 import Loader from '../../components/Loader';
+import { withRouter } from 'next/router'
+import Image from 'next/image'
 
-const Single =()=>{
-    // const {user} = useAuth();
+const Single =({router})=>{
+    // const user = useAuth();
+    const id = router.pathname;
     const [post, setPost] = useState('')
     const [liked, setLiked] = useState(false)
     const [loading, setLoading] = useState(false)
 
+    console.log(id)
+
     useEffect(() => {
-        const getSinglePost = ()=> {
+        const getSinglePost = async()=> {
             try {
                 setLoading(true)
-                firebase
+                await firebase
                 .firestore()
                 .collection('posts')
                 .doc('Hey')
                 .onSnapshot((doc) => {
-                    setPost(doc)
+                    setPost(doc.data())
                     setLoading(false)
                 })
             } catch (error) {
@@ -33,7 +38,7 @@ const Single =()=>{
         }
         getSinglePost()
     }, [])
-    console.log(post)
+
     return (
         <>
         <Head>
@@ -74,4 +79,4 @@ const Single =()=>{
     )
 }
 
-export default Single
+export default withRouter(Single)

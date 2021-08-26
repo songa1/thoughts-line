@@ -149,7 +149,7 @@ nav a {
 }
 
 .btn {
-  padding: 5px;
+  padding: 8px;
   background-color: var(--main);
   box-shadow: #333;
   border-radius: 3px;
@@ -614,4 +614,9 @@ textarea {
 .modal-body img {
   width: auto;
   height: 150px;
+}
+
+.postBody {
+  max-height: 400px;
+  overflow: hidden;
 }

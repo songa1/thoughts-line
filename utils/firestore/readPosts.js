@@ -19,34 +19,40 @@ const ReadPosts = () => {
 
     useEffect(() => {
         try {
-            // setLoading(true)
-            firebase
-            .firestore()
-            .collection('posts')
-            .orderBy('date', 'desc')
-            .onSnapshot((doc) => {
-                setPosts(doc.docs)
-                // setLoading(false)
-            })
+            const getPosts = async() =>{
+                setLoading(true)
+                await firebase
+                .firestore()
+                .collection('posts')
+                .orderBy('date', 'desc')
+                .onSnapshot((doc) => {
+                    setPosts(doc.docs)
+                    setLoading(false)
+                })
+                getPosts()
+            }
         } catch (error) {
-            // setLoading(false)
+            setLoading(false)
         }
     }, [])
 
 
-    const deletePost = (id) => {
+    const deletePost = async(id) => {
         console.log(id)
         if (confirm("Do you want to delete this post?") == true) {
-            firebase
+            setLoading(true)
+            await firebase
             .firestore()
             .collection("posts")
             .doc(id)
             .delete()
             .then(function() {
                 alert('Post deleted successfuly!');
+                setLoading(false)
             })
             .catch(function(error) {
                 console.error("Error removing document: ", error);
+                setLoading(false)
             });
         } else {
             alert('Post not deleted!')
@@ -78,8 +84,7 @@ const ReadPosts = () => {
                         </div>}
                     </div>
                     <article className={styles.postData}>
-                        <p dangerouslySetInnerHTML={{__html: post.data().body}}/>
-                        {post.data().image && <img src={post.data().image ? post.data().image : ''}/>}
+                        <p dangerouslySetInnerHTML={{__html: post.data().body}} className='postBody'/>
                     </article>
                     <div className='postActions'>
                         <p className='btn' onClick={()=> toggle(post.data().id)}>{`${post.data().likes}`}  <FontAwesomeIcon style={{color: liked ?'red': 'white'}} icon={faHeart} /></p>
@@ -88,8 +93,7 @@ const ReadPosts = () => {
                         }}>{`${post.data().comments.length}`} <FontAwesomeIcon style={{color: 'white'}} icon={faComments} /></a>
                         <p className='btn-end' onClick={(e)=>{
                             e.preventDefault();
-                            let url = window.location.href
-                            console.log(url)
+                            
                         }}><FontAwesomeIcon style={{color: 'white'}} icon={faShare} /></p>
                     </div>
                 </div> 
