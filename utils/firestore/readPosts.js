@@ -82,13 +82,28 @@ const ReadPosts = () => {
                         <p dangerouslySetInnerHTML={{__html: post.data().body}} className='postBody'/>
                     </article>
                     <div className='postActions'>
-                        <p className='btn' onClick={()=> toggle(post.data().id)}>{`${post.data().likes}`}  <FontAwesomeIcon style={{color: liked ?'red': 'white'}} icon={faHeart} /></p>
-                        <p className='btn-secondary'>{`${post.data().comments.length}`} <FontAwesomeIcon style={{color: 'white'}} icon={faComments} /></p>
-                        <p className='btn-end' onClick={(e)=>{
+                        <p className='btn' 
+                            onClick={()=> toggle(post.data().id)}>
+                                {`${post.data().likes}`}  
+                                <FontAwesomeIcon 
+                                style={{color: liked ?'red': 'white'}} 
+                                icon={faHeart} />
+                        </p>
+                        <p className='btn-secondary'>
+                            {`${post.data().comments.length}`} 
+                            <FontAwesomeIcon style={{color: 'white'}} 
+                            icon={faComments} />
+                        </p>
+                        <p className='btn-end' 
+                        onClick={(e)=>{
                             e.preventDefault();
                             let url = window.location.href
                             console.log(url)
-                        }}><FontAwesomeIcon style={{color: 'white'}} icon={faShare} /></p>
+                        }}>
+                            <FontAwesomeIcon 
+                            style={{color: 'white'}} 
+                            icon={faShare} />
+                        </p>
                     </div>
                 </div> 
             )) 
