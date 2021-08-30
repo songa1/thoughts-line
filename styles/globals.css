@@ -600,5 +600,19 @@ textarea {
 
 .postBody {
   max-height: 400px;
-  overflow: hidden;
+  overflow: scroll;
+  cursor: pointer;
+}
+
+.postTitle {
+  cursor: pointer;
+}
+
+
+.post {
+  padding: 10px;
+}
+
+.post:hover {
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }

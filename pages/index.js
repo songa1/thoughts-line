@@ -16,9 +16,6 @@ export default function Home() {
     <div className='container'>
       {user && <AddNewPost />}
       <ReadPosts/>
-      <div>
-        
-      </div>
     </div>
     </>
   )

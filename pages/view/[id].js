@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import { useRouter } from 'next/router'
 
 const post = {
     title: 'Why am i not like other people?',
@@ -35,13 +36,18 @@ const post = {
     likes: 100
 }
 
-const Single =()=>{
+const Single =({ children, href })=>{
+    const router = useRouter()
+    const link = router.asPath
+    console.log(link)
+
     return (
         <>
         <Head>
             <meta name="viewport" content="width=device-width,initial-scale=1.0"></meta>
             <meta name="robots" content="index, follow"></meta>
-            <title>{post.title}</title>
+            <meta name="google-site-verification" content="lzuO2DVXYYrKZZY1nLrFSPHa2AQkaY0pRWIPHJ9wjW4" />
+            <title>Post title</title>
         </Head>
         <div className='container'>
             <div className='singlePost'>
