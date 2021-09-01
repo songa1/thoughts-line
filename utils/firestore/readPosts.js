@@ -9,9 +9,10 @@ import Loader from '../../components/Loader';
 import { faHeart, faComments, faShare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import nookies from 'nookies'
+import {useRouter} from 'next/router';
 
 const ReadPosts = () => {
-
+    const router = useRouter();
     const {user} = useAuth();
 
     const [posts, setPosts] = useState('')
@@ -73,10 +74,10 @@ const ReadPosts = () => {
             posts.map(post => (
                 <div key={post.id} className='post'>
                     <div className={styles.postMetadata}>
-                        <Image src='/AS-PNG.png' width='50' height='50'></Image>
+                        <Image src='/AS-PNG.png' width='50' height='50' onClick={()=>router.push('/about')}></Image>
                         <div className={styles.meta}>
                             <h4 onClick={()=>goToSingle(post.id)}><b className='postTitle'>{post.data().title}</b></h4>
-                            <p>{moment(post.date).format('MMMM Do YYYY, h:mm:ss a')}</p>
+                            <p>{`${moment(post.date).format('MMMM Do YYYY, h:mm:ss a')} - ${post.data().comments.length} comments`}</p>
                         </div>
                         {user&&<div className={styles.postEdit}>
                             <p href="#">Edit</p>
@@ -86,15 +87,6 @@ const ReadPosts = () => {
                     <article className={styles.postData}>
                         <p dangerouslySetInnerHTML={{__html: post.data().body}} className='postBody' onClick={()=>goToSingle(post.id)}/>
                     </article>
-                    <div className='postActions'>
-                        <p className='btn' onClick={()=> toggle(post.data().id)}>{`${post.data().likes}`}  <FontAwesomeIcon style={{color: liked ?'red': 'white'}} icon={faHeart} /></p>
-                        <p className='btn-secondary'>{`${post.data().comments.length}`} <FontAwesomeIcon style={{color: 'white'}} icon={faComments} /></p>
-                        <p className='btn-end' onClick={(e)=>{
-                            e.preventDefault();
-                            let url = window.location.href
-                            console.log(url)
-                        }}><FontAwesomeIcon style={{color: 'white'}} icon={faShare} /></p>
-                    </div>
                 </div> 
             )) 
             }
