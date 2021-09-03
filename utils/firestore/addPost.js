@@ -52,7 +52,6 @@ const AddNewPost = () => {
                 date: new Date(),
                 author: "Achille Songa",
                 comments: [],
-                likes: 0
             }
             if (post.title === '') {
                 console.log("Title can't be empty")
