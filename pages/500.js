@@ -13,8 +13,7 @@ const NotFound = () => {
         </Head>
         <div className='container'>
             <div className={styles.notFound}>
-                <h2>Oooops, the page you want is not found!</h2>
-                <img src='/img.png'></img>
+                <h2>500 - Server-side error occurred</h2>
                 <p>Go back to <Link href='/'><a>Homepage</a></Link></p>
             </div>
         </div>

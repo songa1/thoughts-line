@@ -49,10 +49,9 @@ const AddNewPost = () => {
             const post = {
                 title: title,
                 body: body.split(/\n{2,}/),
-                date: Date.now(),
+                date: new Date(),
                 author: "Achille Songa",
                 comments: [],
-                likes: 0
             }
             if (post.title === '') {
                 console.log("Title can't be empty")
@@ -88,13 +87,6 @@ const AddNewPost = () => {
             {!loading && <div className={styles.newPost}>
                 <h2>What's on your mind, Achille!</h2>
                 <input type='text' placeholder='Title...' value={title} onChange={(e)=>setTitle(e.target.value)}></input>
-                {/* <textarea
-                    placeholder="What's on your mind?"
-                    rows='10'
-                    width="100%"
-                    value={body}
-                    onChange={(e)=>setBody(e.target.value)}
-                /> */}
                 <ReactQuill modules={modules} formats={formats} theme="snow" value={body} onChange={(e)=>setBody(e)}/>
                 <button className='btn' onClick={onAddNew} disabled={disabled}>{"Add a new post"}</button>
             </div>}
