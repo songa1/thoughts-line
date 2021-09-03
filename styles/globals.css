@@ -30,7 +30,7 @@ body {
 }
 
 .container {
-  width: 50vw;
+  max-width: 960px;
   margin-top: 7vh;
   margin-left: 15vw;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -468,7 +468,11 @@ textarea {
   display: none;
   background-color: var(--main)
 }
-
+@media (min-width: 1200px) {
+  .container {
+    min-width: 50vw;
+  }
+}
 @media (max-width: 1200px) {
   .projects {
     display: flex;
@@ -513,7 +517,7 @@ textarea {
   }
   .container {
     margin-left: auto;
-    width: 80vw;
+    width: 90vw;
   }
   .background {
     display: flex;
@@ -542,6 +546,10 @@ textarea {
   .project {
     margin: 10px auto;
   }
+  /* .container {
+    width: 90%;
+    margin: inherit 0;
+  } */
 }
 
 @media (max-width: 550px) {
