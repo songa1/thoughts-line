@@ -4,60 +4,31 @@ import { useEffect, useState } from 'react';
 import firebase from 'firebase/app'
 import 'firebase/firestore'
 import moment from 'moment'
-
-// const post = {
-//     title: 'Why am i not like other people?',
-//     body: 'Lorem ipsum dolor sit amet, consectetur adip,jbbhbhbhububububu  csbuhsbdv ghbjvfbujvuhbfvjbiufhvhuvbhufv',
-//     comments: [
-//         {
-//             id: 1,
-//             user: 'user 1',
-//             comment: 'This is a comment'
-//         },
-//         {
-//             id: 2,
-//             user: 'user 2',
-//             comment: 'This is a comment 2'
-//         },
-//         {
-//             id: 3,
-//             user: 'user 3',
-//             comment: 'This is a comment 3'
-//         },
-//         {
-//             id: 4,
-//             user: 'user 4',
-//             comment: 'This is a comment'
-//         },
-//         {
-//             id: 5,
-//             user: 'user 5',
-//             comment: 'This is a comment'
-//         },
-//     ],
-//     author: 'Achille Songa',
-//     date: 'a few seconds ago',
-//     likes: 100
-// }
+import Loader from '../../components/Loader'
+import { Link } from 'prismic-reactjs';
 
 const Single =()=>{
     const router = useRouter();
     const general = router.asPath.split("/").pop().split('%20').join(' ');
     const [post, setPost] = useState('')
+    const [loading, setLoading] = useState(false)
 
     useEffect(()=> {
-        const getPost = async() => {
+        const getPost = () => {
             try {
-                await firebase
+                setLoading(true)
+                firebase
                 .firestore()
                 .collection('posts')
                 .doc(general)
                 .get()
                 .then((doc)=>{
                     setPost(doc.data())
+                    setLoading(false)
                 })
                 .catch(err=>{
                     console.log(err.message)
+                    setLoading(false)
                 })
             } catch (error) {
                 console.log(error)
@@ -76,10 +47,11 @@ const Single =()=>{
             <title>{post ? post.title : ''}</title>
         </Head>
         <div className='container'>
-            {post && <div className='singlePost'>
-                <div>
-                    <h2>{post ? post.title : ''}</h2>
-                    <p>{`Published ${moment(post?post.date:'').fromNow()} by ${post?post.author:''}`}</p>
+            {loading && <Loader />}
+            {post  && <div className='singlePost'>
+                <div className='singleMeta'>
+                    <h2><i>{``}</i>{post ? post.title : ''}</h2>
+                    <p>Published <u>{`${moment(post?post.date:'').fromNow()}`}</u> by <u>{`${post?post.author:''}`}</u></p>
                 </div>
                 <div>
                     <p dangerouslySetInnerHTML={{__html: post.body ? post.body : ''}}/>

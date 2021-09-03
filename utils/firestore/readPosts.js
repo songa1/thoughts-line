@@ -10,6 +10,7 @@ import { faHeart, faComments, faShare } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import nookies from 'nookies'
 import {useRouter} from 'next/router';
+import Link from 'next/link';
 
 const ReadPosts = () => {
     const router = useRouter();
@@ -60,11 +61,6 @@ const ReadPosts = () => {
         }
     }
 
-    // Liking functionality
-    const toggle = (id) => {
-        let localLiked = liked;
-        setLiked(true);
-    };
 
     return (
         <>
@@ -76,7 +72,7 @@ const ReadPosts = () => {
                     <div className={styles.postMetadata}>
                         <Image src='/AS-PNG.png' width='50' height='50' onClick={()=>router.push('/about')}></Image>
                         <div className={styles.meta}>
-                            <h4 onClick={()=>goToSingle(post.id)}><b className='postTitle'>{post.data().title}</b></h4>
+                            <Link href={`/view/${post.id}`}><a><h4><b className='postTitle'>{post.data().title}</b></h4></a></Link>
                             <p>{`${moment(post.date).format('MMMM Do YYYY, h:mm:ss a')} - ${post.data().comments.length} comments`}</p>
                         </div>
                         {user&&<div className={styles.postEdit}>
@@ -85,7 +81,7 @@ const ReadPosts = () => {
                         </div>}
                     </div>
                     <article className={styles.postData}>
-                        <p dangerouslySetInnerHTML={{__html: post.data().body}} className='postBody' onClick={()=>goToSingle(post.id)}/>
+                        <Link href={`/view/${post.id}`}><a><p dangerouslySetInnerHTML={{__html: post.data().body}} className='postBody'/></a></Link>
                     </article>
                 </div> 
             )) 
