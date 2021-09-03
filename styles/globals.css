@@ -26,14 +26,15 @@ body {
   margin: 0;
   word-wrap: break-word;
   line-height: 1.5;
+  background-color: 	#F5F5F5;
 }
 
 .container {
-  /* border: 1px solid #ccc; */
-  width: 45vw;
-  margin-top: 10vh;
+  width: 50vw;
+  margin-top: 7vh;
   margin-left: 15vw;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  background-color: var(--white);
 }
 
 a { 
@@ -51,7 +52,7 @@ nav {
   display: flex;
   align-items: center;
   color: #fff;
-  height: 10vh;
+  height: 7vh;
   width: 100%;
   top: 0;
   position: fixed;
@@ -102,7 +103,7 @@ nav a {
 
 .sidebar {
   background-color: var(--secondary);
-  height: 90vh;
+  height: 93vh;
   width: 15vw;
   color: #fff;
   padding: 20px;
@@ -643,4 +644,8 @@ p {
 
 .singleMeta h2 {
   margin-top: 0;
+}
+
+.singlePost img {
+  width: 100%;
 }
