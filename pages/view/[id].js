@@ -5,7 +5,7 @@ import firebase from 'firebase/app'
 import 'firebase/firestore'
 import moment from 'moment'
 import Loader from '../../components/Loader'
-import { Link } from 'prismic-reactjs';
+import { Link } from 'next/link';
 
 const Single =()=>{
     const router = useRouter();
